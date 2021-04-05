@@ -1,4 +1,5 @@
 import 'package:app_driver/app/data/model/address.dart';
+import 'package:get/state_manager.dart';
 
 String APP_DB = "WIGOO_DRIVER";
 String APP_WELCOME_SHOW = "APP_WELCOME_SHOW";
@@ -17,3 +18,5 @@ String DESTINATION_PLACE = "DEST_PLACE";
 
 Address SOURCE_ADDRESS_USER;
 Address DESTINATION_ADDRESS_USER;
+
+RxBool isConnected = true.obs;

@@ -173,7 +173,7 @@ class HomeView extends GetView<HomeController> {
                                 text: 'Ola, ',
                               ),
                               TextSpan(
-                                text: '{CURRENT_USER}\n',
+                                text: '$CURRENT_USER\n',
                                 style: TextStyle(
                                   color: const Color(0xfff4b503),
                                   fontWeight: FontWeight.w700,
@@ -272,45 +272,63 @@ class HomeView extends GetView<HomeController> {
           Positioned(
               top: 30,
               right: 10,
-              child: Container(
-                width: 95.0,
-                height: 32.0,
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.0),
-                    color: Colors.red),
-                child: Center(
-                  child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Icon(
-                          Icons.online_prediction_sharp,
-                          color: Colors.amber,
-                        ),
-                        SizedBox(
-                          width: 5,
-                        ),
-                        Text.rich(
-                          TextSpan(
-                            style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontSize: 14,
-                              color: const Color(0xff303030),
-                              height: 1.4166666666666667,
-                            ),
-                            children: [
-                              TextSpan(
-                                text: 'Offline',
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              ),
-                            ],
+              child: GestureDetector(
+                onTap: () {
+                  isConnected.value = !isConnected.value;
+                  print(isConnected.value);
+                },
+                child: Obx(() => Container(
+                      width: 95.0,
+                      height: 32.0,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: const Color(0xffffffff),
+                        border: Border.all(
+                            width: 0.5, color: const Color(0x3b707070)),
+                        boxShadow: [
+                          BoxShadow(
+                            color: const Color(0x29000000),
+                            offset: Offset(0, 3),
+                            blurRadius: 6,
                           ),
-                          textAlign: TextAlign.left,
-                        ),
-                      ]),
-                ),
+                        ],
+                      ),
+                      child: Center(
+                        child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Icon(
+                                isConnected.value ? Icons.wifi : Icons.wifi_off,
+                                color: Colors.amber,
+                              ),
+                              SizedBox(
+                                width: 5,
+                              ),
+                              Obx(() => Text.rich(
+                                    TextSpan(
+                                      style: TextStyle(
+                                        fontFamily: 'Poppins',
+                                        fontSize: 14,
+                                        color: const Color(0xff303030),
+                                        height: 1.4166666666666667,
+                                      ),
+                                      children: [
+                                        TextSpan(
+                                          text: isConnected.value
+                                              ? 'Online'
+                                              : 'Offline',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.w700,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    textAlign: TextAlign.left,
+                                  )),
+                            ]),
+                      ),
+                    )),
               ))
         ],
       ),
