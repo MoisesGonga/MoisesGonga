@@ -107,6 +107,7 @@ class HomeView extends GetView<HomeController> {
                   myLocationButtonEnabled: true,
                   mapToolbarEnabled: false,
                   zoomControlsEnabled: false)),
+
           Positioned(
             top: 44,
             left: 15,
@@ -267,6 +268,50 @@ class HomeView extends GetView<HomeController> {
               ),
             ),
           ),
+
+          Positioned(
+              top: 30,
+              right: 10,
+              child: Container(
+                width: 95.0,
+                height: 32.0,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10.0),
+                    color: Colors.red),
+                child: Center(
+                  child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Icon(
+                          Icons.online_prediction_sharp,
+                          color: Colors.amber,
+                        ),
+                        SizedBox(
+                          width: 5,
+                        ),
+                        Text.rich(
+                          TextSpan(
+                            style: TextStyle(
+                              fontFamily: 'Poppins',
+                              fontSize: 14,
+                              color: const Color(0xff303030),
+                              height: 1.4166666666666667,
+                            ),
+                            children: [
+                              TextSpan(
+                                text: 'Offline',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                            ],
+                          ),
+                          textAlign: TextAlign.left,
+                        ),
+                      ]),
+                ),
+              ))
         ],
       ),
     );
