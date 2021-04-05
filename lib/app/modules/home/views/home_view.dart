@@ -305,27 +305,27 @@ class HomeView extends GetView<HomeController> {
                               SizedBox(
                                 width: 5,
                               ),
-                              Obx(() => Text.rich(
+                              Text.rich(
+                                TextSpan(
+                                  style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 14,
+                                    color: const Color(0xff303030),
+                                    height: 1.4166666666666667,
+                                  ),
+                                  children: [
                                     TextSpan(
+                                      text: isConnected.value
+                                          ? 'Online'
+                                          : 'Offline',
                                       style: TextStyle(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 14,
-                                        color: const Color(0xff303030),
-                                        height: 1.4166666666666667,
+                                        fontWeight: FontWeight.w700,
                                       ),
-                                      children: [
-                                        TextSpan(
-                                          text: isConnected.value
-                                              ? 'Online'
-                                              : 'Offline',
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w700,
-                                          ),
-                                        ),
-                                      ],
                                     ),
-                                    textAlign: TextAlign.left,
-                                  )),
+                                  ],
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
                             ]),
                       ),
                     )),
