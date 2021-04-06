@@ -53,7 +53,7 @@ class CheckTelephoneController extends GetxController {
 
   @override
   void onClose() {
-    Hive.close();
+    //Hive.close();
     super.dispose();
   }
 }

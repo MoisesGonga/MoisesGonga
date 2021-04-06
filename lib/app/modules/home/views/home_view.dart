@@ -18,7 +18,7 @@ class HomeView extends GetView<HomeController> {
   loadUserName() async {
     if (CURRENT_USER == null) {
       var hiveDB = Hive.box(APP_DB);
-      CURRENT_USER = await hiveDB.get(CLI_USERNAME);
+      CURRENT_USER.value = await hiveDB.get(CLI_USERNAME);
     }
   }
   //loadUserName();
@@ -160,36 +160,36 @@ class HomeView extends GetView<HomeController> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text.rich(
-                          TextSpan(
-                            style: TextStyle(
-                              fontFamily: 'Poppins',
-                              fontSize: 12,
-                              color: const Color(0xff303030),
-                              height: 1.1666666666666667,
-                            ),
-                            children: [
+                        Obx(() => Text.rich(
                               TextSpan(
-                                text: 'Ola, ',
-                              ),
-                              TextSpan(
-                                text: '$CURRENT_USER\n',
                                 style: TextStyle(
-                                  color: const Color(0xfff4b503),
-                                  fontWeight: FontWeight.w700,
+                                  fontFamily: 'Poppins',
+                                  fontSize: 12,
+                                  color: const Color(0xff303030),
+                                  height: 1.1666666666666667,
                                 ),
+                                children: [
+                                  TextSpan(
+                                    text: 'Ola, ',
+                                  ),
+                                  TextSpan(
+                                    text: '${CURRENT_USER.value ?? "Levi Gomes"}\n',
+                                    style: TextStyle(
+                                      color: const Color(0xfff4b503),
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                  TextSpan(
+                                    text: 'Aonde pretendes ir?',
+                                    style: TextStyle(
+                                      fontSize: 24,
+                                      fontWeight: FontWeight.w700,
+                                    ),
+                                  ),
+                                ],
                               ),
-                              TextSpan(
-                                text: 'Aonde pretendes ir?',
-                                style: TextStyle(
-                                  fontSize: 24,
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              ),
-                            ],
-                          ),
-                          textAlign: TextAlign.left,
-                        )
+                              textAlign: TextAlign.left,
+                            ))
                       ],
                     )),
                   ),

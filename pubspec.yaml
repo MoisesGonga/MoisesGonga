@@ -50,6 +50,8 @@ dependencies:
   flutter_rating_bar: ^3.2.0+1
   badges: ^1.2.0
   getwidget: ^1.2.4
+  flutter_polyline_points: ^0.2.2
+  image_picker: ^0.6.7+22
 
 dev_dependencies:
   flutter_test:

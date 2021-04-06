@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import '../controllers/search_place_controller.dart';
 import 'package:app_driver/app/data/model/place_model.dart';
 import 'package:app_driver/app/global/widgets/place-tile.dart';
+import 'package:app_driver/app/modules/options_trip/views/options_trip_view.dart';
+import 'package:app_driver/app/modules/options_trip/controllers/options_trip_controller.dart';
+import 'package:app_driver/app/data/repository/place_repository.dart';
 
 class SearchPlaceView extends GetView<SearchPlaceController> {
   @override
@@ -14,6 +17,11 @@ class SearchPlaceView extends GetView<SearchPlaceController> {
   final sourceFocusNode = new FocusNode();
   final destinationFocusNode = new FocusNode();
 
+  SearchPlaceView() {
+    Get.put(OptionsTripController());
+    Get.put(PlaceRepository());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -24,7 +32,7 @@ class SearchPlaceView extends GetView<SearchPlaceController> {
               backgroundColor: Colors.black,
               foregroundColor: Colors.white,
               onPressed: () {
-                //  Get.to(() => ChooseTaxiPage());
+                Get.to(() => OptionsTripView());
               },
               icon: Icon(
                 Icons.check,

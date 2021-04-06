@@ -12,6 +12,8 @@ import 'package:app_driver/app/modules/options_trip/views/options_trip_view.dart
 import 'package:app_driver/app/modules/search_place/bindings/search_place_binding.dart';
 import 'package:app_driver/app/modules/search_place/views/search_place_view.dart';
 
+import 'package:app_driver/app/modules/search_driver/bindings/search_driver_binding.dart';
+import 'package:app_driver/app/modules/search_driver/views/search_driver_view.dart';
 
 import 'package:app_driver/app/modules/payment/bindings/payment_binding.dart';
 import 'package:app_driver/app/modules/payment/views/payment_view.dart';
@@ -104,11 +106,15 @@ class AppPages {
       page: () => OptionsTripView(),
       binding: OptionsTripBinding(),
     ),
-    
     GetPage(
       name: _Paths.SEARCH_PLACE,
       page: () => SearchPlaceView(),
       binding: SearchPlaceBinding(),
+    ),
+    GetPage(
+      name: _Paths.SEARCH_DRIVER,
+      page: () => SearchDriverView(),
+      binding: SearchDriverBinding(),
     )
   ];
 }

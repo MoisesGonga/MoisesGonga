@@ -5,10 +5,11 @@ import 'package:app_driver/app/modules/search_place/controllers/search_place_con
 class HomeBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<HomeController>(
+    /*Get.lazyPut<HomeController>(
       () => HomeController(),
-    );
-
+     
+    );*/
+    Get.put(HomeController());
     Get.put(SearchPlaceController());
   }
 }

@@ -17,6 +17,7 @@ abstract class Routes {
   static const FINISH_TRIP = _Paths.FINISH_TRIP;
   static const OPTIONS_TRIP = _Paths.OPTIONS_TRIP;
   static const SEARCH_PLACE = _Paths.SEARCH_PLACE;
+  static const SEARCH_DRIVER = _Paths.SEARCH_DRIVER;
 }
 
 abstract class _Paths {
@@ -34,4 +35,5 @@ abstract class _Paths {
   static const FINISH_TRIP = '/finish-trip';
   static const OPTIONS_TRIP = '/options-trip';
   static const SEARCH_PLACE = '/search-place';
+  static const SEARCH_DRIVER = '/search-driver';
 }

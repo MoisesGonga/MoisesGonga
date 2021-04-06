@@ -22,7 +22,7 @@ class DrawerMenu extends StatelessWidget {
     print(CURRENT_USER);
     if (CURRENT_USER == null) {
       var hiveDB = Hive.box(APP_DB);
-      CURRENT_USER = await hiveDB.get(CLI_USERNAME);
+      CURRENT_USER.value = await hiveDB.get(CLI_USERNAME);
     }
     print(CURRENT_USER);
   }
@@ -79,46 +79,47 @@ class DrawerMenu extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text.rich(
-                            TextSpan(
-                              style: TextStyle(
-                                fontFamily: 'Poppins',
-                                fontSize: 12,
-                                color: const Color(0xff303030),
-                                height: 1.4,
-                              ),
-                              children: [
+                          Obx(() => Text.rich(
                                 TextSpan(
-                                  text: 'Olá, ',
                                   style: TextStyle(
-                                    fontWeight: FontWeight.w600,
+                                    fontFamily: 'Poppins',
+                                    fontSize: 12,
+                                    color: const Color(0xff303030),
+                                    height: 1.4,
                                   ),
+                                  children: [
+                                    TextSpan(
+                                      text: 'Olá, ',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text:
+                                          '${CURRENT_USER.value ?? "Levi Gomes"}',
+                                      style: TextStyle(
+                                        color: const Color(0xff000000),
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: ' \n',
+                                      style: TextStyle(
+                                        color: const Color(0xfff4b503),
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                    TextSpan(
+                                      text: '',
+                                      style: TextStyle(
+                                        fontSize: 20,
+                                        color: const Color(0xfff4b503),
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                                TextSpan(
-                                  text: '',
-                                  style: TextStyle(
-                                    color: const Color(0xff000000),
-                                  ),
-                                ),
-                                TextSpan(
-                                  text: ' \n',
-                                  style: TextStyle(
-                                    color: const Color(0xfff4b503),
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                                TextSpan(
-                                  text: '$CURRENT_USER',
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    color: const Color(0xfff4b503),
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ),
-                              ],
-                            ),
-                            textAlign: TextAlign.left,
-                          )
+                                textAlign: TextAlign.left,
+                              ))
                         ],
                       )),
                     ),
@@ -140,7 +141,7 @@ class DrawerMenu extends StatelessWidget {
             // PROFILE PAGE
             ListTile(
               onTap: () {
-                Get.to( ()=>ProfileView(), transition: Transition.leftToRight);
+                Get.to(() => ProfileView(), transition: Transition.leftToRight);
                 toggleDrawer();
               },
               leading: Container(
@@ -161,7 +162,7 @@ class DrawerMenu extends StatelessWidget {
             // TRIP PAGE
             ListTile(
               onTap: () {
-                Get.to( ()=>TripView(), transition: Transition.leftToRight);
+                Get.to(() => TripView(), transition: Transition.leftToRight);
                 toggleDrawer();
               },
               leading: Container(
@@ -182,7 +183,7 @@ class DrawerMenu extends StatelessWidget {
             //PLACE PAGE
             ListTile(
               onTap: () {
-                Get.to( ()=> PlacesView(), transition: Transition.leftToRight);
+                Get.to(() => PlacesView(), transition: Transition.leftToRight);
                 toggleDrawer();
               },
               leading: Container(
@@ -202,7 +203,7 @@ class DrawerMenu extends StatelessWidget {
             ),
             ListTile(
               onTap: () {
-                Get.to( ()=>WalletView(), transition: Transition.leftToRight);
+                Get.to(() => WalletView(), transition: Transition.leftToRight);
                 toggleDrawer();
               },
               leading: Container(

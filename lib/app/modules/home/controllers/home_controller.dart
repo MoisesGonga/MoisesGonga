@@ -30,7 +30,7 @@ class HomeController extends GetxController {
   void onInit() async {
     super.onInit();
     var hiveDB = Hive.box(APP_DB);
-    CURRENT_USER = await hiveDB.get(CLI_USERNAME);
+    CURRENT_USER.value = await hiveDB.get(CLI_USERNAME);
 
     FlutterStatusbarcolor.setStatusBarWhiteForeground(true);
 
@@ -40,7 +40,7 @@ class HomeController extends GetxController {
   @override
   void onReady() async {
     var hiveDB = Hive.box(APP_DB);
-    CURRENT_USER = await hiveDB.get(CLI_USERNAME);
+    CURRENT_USER.value = await hiveDB.get(CLI_USERNAME);
   }
 
   searchPlace(String placeName) {
