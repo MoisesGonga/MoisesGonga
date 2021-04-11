@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1060143026992",
+    "project_id": "appwigoo-driver",
+    "storage_bucket": "appwigoo-driver.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1060143026992:android:6708f4b1e445f59dc3eef5",
+        "android_client_info": {
+          "package_name": "com.levelup.app_driver"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1060143026992-q9026ikt84rdt3lonnu84j8pl5qqtei5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRBR9jvFFhzSDYCrKvdPUVAw7SNHIH77I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1060143026992-q9026ikt84rdt3lonnu84j8pl5qqtei5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
